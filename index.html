@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pro Pulot Co. | Jersey Voting</title>
+<title>Pro Pulot Jersey Poll</title>
+
 <style>
 :root {
   --navy: #101c35;
@@ -14,72 +14,158 @@
   --white: #fff;
   --muted: #687386;
 }
-* { box-sizing: border-box; }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background: var(--cream);
   color: var(--navy);
   font-family: Inter, Arial, sans-serif;
 }
+
 header {
   background: var(--navy);
-  color: white;
+  color: #fff;
   padding: 32px 20px;
   text-align: center;
   border-bottom: 5px solid var(--gold);
 }
+
 header .brand {
   color: var(--gold);
   font-weight: 800;
   letter-spacing: 4px;
   font-size: 14px;
 }
-header h1 { margin: 14px 0 8px; font-size: clamp(27px,5vw,42px); }
-header p { color: #dce4f0; margin: 0; }
-main { max-width: 1200px; margin: auto; padding: 28px 18px 60px; }
-.section-title { margin: 34px 0 18px; }
-.section-title h2 { margin-bottom: 6px; }
-.section-title p { color: var(--muted); margin-top: 0; }
+
+header h1 {
+  margin: 14px 0 8px;
+  font-size: clamp(27px, 5vw, 42px);
+}
+
+header p {
+  color: #dce4f0;
+  margin: 0;
+}
+
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 28px 18px 60px;
+}
+
+.section-title {
+  margin: 34px 0 18px;
+}
+
+.section-title h2 {
+  margin-bottom: 6px;
+}
+
+.section-title p {
+  color: var(--muted);
+  margin-top: 0;
+}
+
 .stats {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
+
 .stat {
-  background: white;
+  background: #fff;
   padding: 20px;
   border-radius: 12px;
   text-align: center;
   border: 1px solid #e5e7eb;
 }
-.stat strong { display:block; font-size: 30px; color: var(--blue); }
-.stat span { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+.stat strong {
+  display: block;
+  font-size: 30px;
+  color: var(--blue);
+}
+
+.stat span {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
+
 .design {
-  background: white;
+  background: #fff;
   border-radius: 15px;
   overflow: hidden;
   border: 1px solid #e3e5e9;
   box-shadow: 0 5px 18px #17243b0b;
 }
-.design.selected { outline: 3px solid var(--gold); }
-.design h3 { margin: 0; padding: 17px 17px 4px; }
-.design .tag { padding: 0 17px 12px; color: var(--muted); font-size: 12px; }
+
+.design.selected {
+  outline: 3px solid var(--gold);
+}
+
+.design.already-voted {
+  opacity: .78;
+}
+
+.design h3 {
+  margin: 0;
+  padding: 17px 17px 4px;
+}
+
+.design .tag {
+  padding: 0 17px 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
 .photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 7px;
   padding: 0 10px;
 }
-.photo { background: #f0f1f4; border-radius: 8px; overflow: hidden; }
-.photo img { width:100%; height: 260px; object-fit: contain; display:block; }
-.photo small { display:block; text-align:center; padding:7px; color:var(--muted); }
-.vote-area { padding: 14px; }
-.vote-count { color:var(--muted); font-size:13px; margin-bottom:10px; }
+
+.photo {
+  background: #f0f1f4;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.photo img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  display: block;
+}
+
+.photo small {
+  display: block;
+  text-align: center;
+  padding: 7px;
+  color: var(--muted);
+}
+
+.vote-area {
+  padding: 14px;
+}
+
+.vote-count {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
 button {
   border: 0;
   border-radius: 8px;
@@ -87,38 +173,139 @@ button {
   font-weight: 700;
   cursor: pointer;
 }
-.vote-btn { width:100%; background:var(--navy); color:white; }
-.vote-btn:hover { background:var(--blue); }
-.vote-btn:disabled { opacity:.45; cursor:not-allowed; }
+
+.vote-btn {
+  width: 100%;
+  background: var(--navy);
+  color: #fff;
+}
+
+.vote-btn:hover {
+  background: var(--blue);
+}
+
+.vote-btn.is-selected {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.vote-btn:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.vote-submit {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.vote-submit p {
+  margin: 5px 0;
+  color: var(--muted);
+}
+
+.vote-submit button {
+  background: var(--navy);
+  color: #fff;
+}
+
+.vote-submit button:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
 .results {
-  background:white;
-  border-radius:14px;
-  padding:22px;
-  border:1px solid #e3e5e9;
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px;
+  border: 1px solid #e3e5e9;
 }
-.result-row { margin:18px 0; }
-.result-head { display:flex; justify-content:space-between; gap:12px; font-size:14px; margin-bottom:7px; }
-.track { height:13px; background:#e9edf3; border-radius:20px; overflow:hidden; }
-.bar { height:100%; background:linear-gradient(90deg,var(--blue),var(--gold)); border-radius:20px; transition:width .4s; }
-.rank { font-weight:800; color:var(--gold); margin-right:8px; }
-.status { color:var(--muted); font-size:13px; margin-top:12px; }
+
+.result-row {
+  margin: 18px 0;
+}
+
+.result-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.track {
+  height: 13px;
+  background: #e9edf3;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--gold));
+  border-radius: 20px;
+  transition: width .4s;
+}
+
+.rank {
+  font-weight: 800;
+  color: var(--gold);
+  margin-right: 8px;
+}
+
+.status {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 12px;
+}
+
 .notice {
-  padding:14px;
-  background:#fff8e7;
-  border:1px solid #ead9ad;
-  border-radius:9px;
-  color:#654d1d;
-  font-size:13px;
-  line-height:1.5;
+  padding: 14px;
+  background: #fff8e7;
+  border: 1px solid #ead9ad;
+  border-radius: 9px;
+  color: #654d1d;
+  font-size: 13px;
+  line-height: 1.5;
 }
-footer { background:var(--navy); color:#dce4f0; text-align:center; padding:25px; font-size:13px; }
-@media(max-width:560px) {
-  .stats { grid-template-columns:1fr; }
-  .photo img { height:200px; }
-  main { padding-left:12px; padding-right:12px; }
+
+footer {
+  background: var(--navy);
+  color: #dce4f0;
+  text-align: center;
+  padding: 25px;
+  font-size: 13px;
+}
+
+@media(max-width: 560px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .photo img {
+    height: 200px;
+  }
+
+  main {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .result-head {
+    font-size: 12px;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -128,329 +315,532 @@ footer { background:var(--navy); color:#dce4f0; text-align:center; padding:25px;
 </header>
 
 <main>
+
   <section class="stats">
-    <div class="stat"><strong id="totalVotes">0</strong><span>Total Votes</span></div>
-    <div class="stat"><strong id="totalDesigns">0</strong><span>Design Options</span></div>
-    <div class="stat"><strong id="leader">—</strong><span>Current Leader</span></div>
+    <div class="stat">
+      <strong id="totalVotes">0</strong>
+      <span>Total Votes</span>
+    </div>
+
+    <div class="stat">
+      <strong id="totalDesigns">0</strong>
+      <span>Design Options</span>
+    </div>
+
+    <div class="stat">
+      <strong id="leader">—</strong>
+      <span>Current Leader</span>
+    </div>
   </section>
 
   <section class="section-title">
-    <h2>Choose Your Jersey</h2>
-    <p>View the front and back of each design, then cast your vote.</p>
+    <h2>Choose Your Jerseys</h2>
+    <p>Select up to five different designs, then submit all your choices together.</p>
   </section>
 
-  <div id="gallery" class="gallery">Loading jersey designs...</div>
-  <div class="vote-submit">
+  <div id="gallery" class="gallery">
+    Loading jersey designs...
+  </div>
+
+  <section class="vote-submit" aria-live="polite">
     <div>
-        <strong>
-            <span id="selectedCount">0</span> SELECTED
-        </strong>
-        <p>Choose up to 5 jersey designs.</p>
-        <small id="remainingCount">5 votes remaining</small>
+      <strong>
+        <span id="selectedCount">0</span> / 5 DESIGNS SELECTED
+      </strong>
+
+      <p id="remainingCount">You can select up to 5 designs.</p>
+
+      <small id="voterStatus">
+        Your selections have not been submitted.
+      </small>
     </div>
 
     <button
-        id="submitVotesBtn"
-        onclick="submitVotes()"
-        disabled>
-        SUBMIT MY VOTES
+      id="submitVotesBtn"
+      onclick="submitVotes()"
+      disabled>
+      SUBMIT MY VOTES
     </button>
-</div>
+  </section>
+
   <p id="galleryStatus" class="status"></p>
 
   <section class="section-title">
     <h2>Voting Leaderboard</h2>
-    <p>Live ranking based on submitted votes.</p>
+    <p>Rankings are based on the number of votes received by each design.</p>
   </section>
 
   <section class="results">
-    <div id="leaderboard">Waiting for voting results...</div>
+    <div id="leaderboard">
+      Waiting for voting results...
+    </div>
+
     <p id="resultStatus" class="status"></p>
   </section>
 
   <section class="section-title">
     <h2>Voting Information</h2>
   </section>
+
   <div class="notice">
-    One vote per browser is enforced by a local voter token. For reliable
-    organization-wide duplicate protection, connect an authenticated voter
-    system before opening the poll publicly.
+    Each voter identity can submit up to five different jersey choices.
+    The voting service checks previous submissions and prevents the same
+    identity from voting for the same design twice. Browser-based identity
+    is not the same as verified individual identity.
   </div>
+
 </main>
 
-<footer>© Pro Pulot Co. | Official Jersey Design Poll</footer>
+<footer>
+  © Pro Pulot Co. | Official Jersey Design Poll
+</footer>
 
 <script>
+
 const OWNER = "Pro-Pulot-Co";
 const REPO = "pro-pulot-jersey-poll";
 const FOLDER = "Designs";
+const MAX_VOTES = 5;
 
-// Paste your deployed Google Apps Script URL here after setup.
-const SHEETS_URL="https://script.google.com/macros/s/AKfycbz3HlgrJknE-mEvFDcYy7Z98dC5vs4YKfEXJtWu16C5FWr51aiqF6ZHwH-WN3anela2CQ/exec";
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbz3HlgrJknE-mEvFDcYy7Z98dC5vs4YKfEXJtWu16C5FWr51aiqF6ZHwH-WN3anela2CQ/exec";
 
 const gallery = document.getElementById("gallery");
 const galleryStatus = document.getElementById("galleryStatus");
 const leaderboard = document.getElementById("leaderboard");
 const resultStatus = document.getElementById("resultStatus");
+const submitButton = document.getElementById("submitVotesBtn");
 
 let designs = [];
 let votes = {};
-let selected = null;
+let selectedDesigns = new Set();
+let alreadyVoted = new Set();
+
 
 function voterToken() {
   let token = localStorage.getItem("proPulotVoter");
+
   if (!token) {
-    token = crypto.randomUUID();
+    token = (crypto.randomUUID ? crypto.randomUUID() :
+      "voter-" + Date.now() + "-" + Math.random().toString(36).slice(2));
+
     localStorage.setItem("proPulotVoter", token);
   }
+
   return token;
 }
 
-function imageURL(file) {
-  return file.download_url;
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, c => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[c]);
 }
 
+
+function escapeJS(value) {
+  return String(value)
+    .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'");
+}
+
+
+function jsonp(params) {
+  return new Promise((resolve, reject) => {
+
+    const callback = "poll_" + Date.now() + "_" +
+      Math.random().toString(36).slice(2);
+
+    const script = document.createElement("script");
+
+    const timeout = setTimeout(() => {
+      cleanup();
+      reject(new Error("The voting service did not respond. Please try again."));
+    }, 20000);
+
+    function cleanup() {
+      clearTimeout(timeout);
+      delete window[callback];
+      script.remove();
+    }
+
+    window[callback] = data => {
+      cleanup();
+      resolve(data);
+    };
+
+    script.onerror = () => {
+      cleanup();
+      reject(new Error("Could not connect to the voting service."));
+    };
+
+    const query = new URLSearchParams({
+      ...params,
+      callback
+    });
+
+    script.src = `${SHEETS_URL}?${query}`;
+
+    document.body.appendChild(script);
+  });
+}
+
+
 async function loadDesigns() {
+
   try {
+
     const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FOLDER}`;
+
     const response = await fetch(url);
-    if (!response.ok) throw new Error("Could not read Designs folder.");
+
+    if (!response.ok) {
+      throw new Error("Could not read the Designs folder.");
+    }
 
     const files = await response.json();
-    const images = files.filter(f => f.type === "file" && /\.(png|jpe?g|webp)$/i.test(f.name));
+
+    const images = files.filter(f =>
+      f.type === "file" &&
+      /\.(png|jpe?g|webp)$/i.test(f.name)
+    );
 
     const grouped = {};
 
     images.forEach(file => {
+
       const match = file.name.match(/^(.*?)\s+([BF])\.(png|jpe?g|webp)$/i);
+
       if (!match) return;
 
       const name = match[1].trim();
       const side = match[2].toUpperCase();
 
-      if (!grouped[name]) grouped[name] = { name };
-      grouped[name][side] = imageURL(file);
+      if (!grouped[name]) {
+        grouped[name] = { name };
+      }
+
+      grouped[name][side] = file.download_url;
+
     });
 
     designs = Object.values(grouped)
       .filter(d => d.F && d.B)
-      .sort((a,b) => a.name.localeCompare(b.name));
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    document.getElementById("totalDesigns").textContent = designs.length;
 
     renderGallery();
 
     if (!designs.length) {
-      galleryStatus.textContent = "No complete front/back image pairs found. Check the image filenames.";
+      galleryStatus.textContent =
+        "No complete front/back image pairs found. Check the filenames in Designs.";
     } else {
-      galleryStatus.textContent = `${designs.length} complete jersey designs loaded.`;
+      galleryStatus.textContent =
+        `${designs.length} complete jersey designs loaded.`;
     }
 
-    loadResults();
+    await loadVoterStatus();
+    await loadResults();
+
   } catch (error) {
+
     gallery.textContent = "Unable to load designs: " + error.message;
-    galleryStatus.textContent = "Check that the repository is public and the images are committed inside Designs.";
+
+    galleryStatus.textContent =
+      "Check that the repository is public and the images are committed inside Designs.";
+
   }
 }
+
 
 function renderGallery() {
-  document.getElementById("totalDesigns").textContent = designs.length;
 
-  gallery.innerHTML = designs.map((d, i) => `
-    <article class="design ${selected === d.name ? "selected" : ""}">
-      <h3>${escapeHTML(d.name)}</h3>
-      <div class="tag">PRO PULOT CO. JERSEY COLLECTION</div>
-      <div class="photos">
-        <div class="photo">
-          <img src="${d.F}" alt="${escapeHTML(d.name)} front" loading="lazy">
-          <small>FRONT</small>
+  gallery.innerHTML = designs.map((d, i) => {
+
+    const isSelected = selectedDesigns.has(d.name);
+    const hasVoted = alreadyVoted.has(d.name);
+    const count = Number(votes[d.name] || 0);
+
+    return `
+      <article class="design ${isSelected ? "selected" : ""} ${hasVoted ? "already-voted" : ""}">
+
+        <h3>${escapeHTML(d.name)}</h3>
+
+        <div class="tag">
+          PRO PULOT CO. JERSEY COLLECTION
         </div>
-        <div class="photo">
-          <img src="${d.B}" alt="${escapeHTML(d.name)} back" loading="lazy">
-          <small>BACK</small>
+
+        <div class="photos">
+
+          <div class="photo">
+            <img
+              src="${d.F}"
+              alt="${escapeHTML(d.name)} front"
+              loading="lazy">
+            <small>FRONT</small>
+          </div>
+
+          <div class="photo">
+            <img
+              src="${d.B}"
+              alt="${escapeHTML(d.name)} back"
+              loading="lazy">
+            <small>BACK</small>
+          </div>
+
         </div>
-      </div>
-      <div class="vote-area">
-        <div class="vote-count" id="count-${i}">Loading votes...</div>
-        <button class="vote-btn" onclick="castVote('${escapeJS(d.name)}')">VOTE FOR THIS DESIGN</button>
-      </div>
-    </article>
-  `).join("");
+
+        <div class="vote-area">
+
+          <div class="vote-count">
+            ${count} ${count === 1 ? "vote" : "votes"}
+          </div>
+
+          <button
+            class="vote-btn ${isSelected ? "is-selected" : ""}"
+            onclick="toggleSelection('${escapeJS(d.name)}')"
+            ${hasVoted ? "disabled" : ""}>
+
+            ${hasVoted
+              ? "ALREADY VOTED"
+              : isSelected
+                ? "✓ SELECTED — TAP TO REMOVE"
+                : "SELECT THIS DESIGN"}
+
+          </button>
+
+        </div>
+
+      </article>
+    `;
+
+  }).join("");
+
+  updateSelectionUI();
 }
 
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, c => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  })[c]);
-}
-function escapeJS(value) {
-  return String(value).replace(/\\/g,"\\\\").replace(/'/g,"\\'");
+
+function toggleSelection(name) {
+
+  if (alreadyVoted.has(name)) return;
+
+  if (selectedDesigns.has(name)) {
+
+    selectedDesigns.delete(name);
+
+  } else {
+
+    if (alreadyVoted.size + selectedDesigns.size >= MAX_VOTES) {
+      alert("You can select a maximum of five designs.");
+      return;
+    }
+
+    selectedDesigns.add(name);
+
+  }
+
+  renderGallery();
 }
 
-async function castVote(name) {
-  if (!designs.some(d => d.name === name)) return;
 
-  if (localStorage.getItem("proPulotHasVoted")) {
-    alert("You have already voted using this browser.");
+function updateSelectionUI() {
+
+  const count = selectedDesigns.size;
+
+  const remaining = Math.max(
+    0,
+    MAX_VOTES - alreadyVoted.size - count
+  );
+
+  document.getElementById("selectedCount").textContent = count;
+
+  document.getElementById("remainingCount").textContent =
+    alreadyVoted.size
+      ? `${alreadyVoted.size} already submitted. ${remaining} selections remaining.`
+      : `${remaining} ${remaining === 1 ? "selection" : "selections"} remaining.`;
+
+  document.getElementById("voterStatus").textContent =
+    alreadyVoted.size
+      ? `${alreadyVoted.size} of your 5 allowed choices already submitted.`
+      : "You have not submitted any choices yet.";
+
+  submitButton.disabled = count === 0;
+}
+
+
+async function submitVotes() {
+
+  const choices = [...selectedDesigns];
+
+  if (!choices.length) {
+    alert("Select at least one design.");
     return;
   }
 
-  if (!SHEETS_URL) {
-    alert("Voting is not connected yet. The Google Sheets endpoint must be configured first.");
+  if (alreadyVoted.size + choices.length > MAX_VOTES) {
+    alert("You can submit no more than five designs in total.");
     return;
   }
 
-  const button = [...document.querySelectorAll(".vote-btn")]
-    .find(b => b.getAttribute("onclick") === `castVote('${escapeJS(name)}')`);
-
-  if (button) {
-    button.disabled = true;
-    button.textContent = "SUBMITTING...";
-  }
+  submitButton.disabled = true;
+  submitButton.textContent = "SUBMITTING...";
 
   try {
-    const callbackName = "voteCallback_" + Date.now();
-    const script = document.createElement("script");
 
-    const result = await new Promise((resolve, reject) => {
-      const timeout = setTimeout(() => {
-        cleanup();
-        reject(new Error("Vote request timed out."));
-      }, 15000);
-
-      function cleanup() {
-        clearTimeout(timeout);
-        delete window[callbackName];
-        script.remove();
-      }
-
-      window[callbackName] = data => {
-        cleanup();
-        resolve(data);
-      };
-
-      script.onerror = () => {
-        cleanup();
-        reject(new Error("Could not reach the voting service."));
-      };
-
-      script.src = `${SHEETS_URL}?action=vote&design=${encodeURIComponent(name)}&voter=${encodeURIComponent(voterToken())}&callback=${callbackName}`;
-      document.body.appendChild(script);
+    const result = await jsonp({
+      action: "vote",
+      choices: JSON.stringify(choices),
+      voter: voterToken()
     });
 
-    if (!result.success) throw new Error(result.message || "Vote was not accepted.");
+    if (!result.success) {
+      throw new Error(result.message || "Your votes were not accepted.");
+    }
 
-    localStorage.setItem("proPulotHasVoted", "true");
-    alert("Your vote has been recorded. Thank you!");
+    alreadyVoted = new Set(
+      result.votedDesigns || [...alreadyVoted, ...choices]
+    );
+
+    selectedDesigns.clear();
+
+    alert(
+      `Your ${choices.length} ${
+        choices.length === 1 ? "vote has" : "votes have"
+      } been recorded. Thank you!`
+    );
+
     await loadResults();
+
     renderGallery();
+
   } catch (error) {
+
     alert(error.message);
-    if (button) {
-      button.disabled = false;
-      button.textContent = "VOTE FOR THIS DESIGN";
-    }
+
+  } finally {
+
+    submitButton.textContent = "SUBMIT MY VOTES";
+
+    updateSelectionUI();
+
   }
 }
 
-function loadResults() {
-  if (!SHEETS_URL) {
-    renderResults({});
-    resultStatus.textContent = "Connect Google Sheets to display live voting results.";
-    return;
-  }
 
-  const callbackName = "resultsCallback_" + Date.now();
-  const script = document.createElement("script");
+async function loadVoterStatus() {
 
-  return new Promise(resolve => {
-    const timeout = setTimeout(() => {
-      cleanup();
-      resultStatus.textContent = "Results could not be loaded.";
-      resolve();
-    }, 15000);
-
-    function cleanup() {
-      clearTimeout(timeout);
-      delete window[callbackName];
-      script.remove();
-    }
-
-    window[callbackName] = data => {
-      cleanup();
-      if (data.success) {
-        votes = data.votes || {};
-        renderResults(votes);
-        resultStatus.textContent = "Results successfully synchronized with Google Sheets.";
-      } else {
-        resultStatus.textContent = data.message || "Unable to load results.";
-      }
-      resolve();
-    };
-
-    script.onerror = () => {
-      cleanup();
-      resultStatus.textContent = "Could not connect to Google Sheets.";
-      resolve();
-    };
-
-    script.src = `${SHEETS_URL}?action=results&callback=${callbackName}`;
-    document.body.appendChild(script);
+  const result = await jsonp({
+    action: "status",
+    voter: voterToken()
   });
+
+  if (!result.success) {
+    throw new Error(
+      result.message || "Could not check your previous votes."
+    );
+  }
+
+  alreadyVoted = new Set(result.votedDesigns || []);
+
+  renderGallery();
 }
+
+
+async function loadResults() {
+
+  try {
+
+    const result = await jsonp({
+      action: "results"
+    });
+
+    if (!result.success) {
+      throw new Error(result.message || "Could not load results.");
+    }
+
+    votes = result.votes || {};
+
+    renderResults(votes);
+
+    resultStatus.textContent =
+      "Results synchronized with Google Sheets.";
+
+    renderGallery();
+
+  } catch (error) {
+
+    resultStatus.textContent = error.message;
+
+  }
+}
+
 
 function renderResults(data) {
+
   const sorted = designs.map(d => ({
     name: d.name,
     count: Number(data[d.name] || 0)
-  })).sort((a,b) => b.count - a.count || a.name.localeCompare(b.name));
+  })).sort((a, b) =>
+    b.count - a.count || a.name.localeCompare(b.name)
+  );
 
-  const total = sorted.reduce((sum,d) => sum + d.count, 0);
+  const total = sorted.reduce(
+    (sum, d) => sum + d.count,
+    0
+  );
 
   document.getElementById("totalVotes").textContent = total;
+
   document.getElementById("leader").textContent =
     total && sorted.length ? sorted[0].name : "—";
 
-  leaderboard.innerHTML = sorted.length ? sorted.map((d,i) => {
-    const percentage = total ? (d.count / total * 100) : 0;
-    return `
-      <div class="result-row">
-        <div class="result-head">
-          <span><span class="rank">#${i+1}</span>${escapeHTML(d.name)}</span>
-          <strong>${d.count} votes · ${percentage.toFixed(1)}%</strong>
-        </div>
-        <div class="track"><div class="bar" style="width:${percentage}%"></div></div>
-      </div>`;
-  }).join("") : "No designs available.";
+  leaderboard.innerHTML = sorted.length
+    ? sorted.map((d, i) => {
+
+        const percentage = total
+          ? d.count / total * 100
+          : 0;
+
+        return `
+          <div class="result-row">
+
+            <div class="result-head">
+
+              <span>
+                <span class="rank">#${i + 1}</span>
+                ${escapeHTML(d.name)}
+              </span>
+
+              <strong>
+                ${d.count} ${d.count === 1 ? "vote" : "votes"}
+                · ${percentage.toFixed(1)}%
+              </strong>
+
+            </div>
+
+            <div class="track">
+              <div
+                class="bar"
+                style="width:${percentage}%">
+              </div>
+            </div>
+
+          </div>
+        `;
+
+      }).join("")
+    : "No designs available.";
+
 }
+
 
 loadDesigns();
+
 </script>
+
 </body>
 </html>
-
-.vote-btn.is-selected {
-    background: var(--gold);
-    color: var(--navy);
-}
-
-.vote-submit {
-    background: white;
-    border: 2px solid var(--gold);
-    border-radius: 12px;
-    padding: 20px;
-    margin: 25px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.vote-submit button {
-    background: var(--navy);
-    color: white;
-}
-
-.vote-submit button:disabled {
-    opacity: .4;
-    cursor: not-allowed;
-}
