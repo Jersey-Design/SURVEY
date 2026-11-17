@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pro Pulot Jersey Poll</title>
+<title>Pro Pulot Co. | Jersey Voting</title>
 
 <style>
 :root {
@@ -13,11 +13,10 @@
   --cream: #f7f4ec;
   --white: #fff;
   --muted: #687386;
+  --red: #a83232;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -28,7 +27,7 @@ body {
 
 header {
   background: var(--navy);
-  color: #fff;
+  color: white;
   padding: 32px 20px;
   text-align: center;
   border-bottom: 5px solid var(--gold);
@@ -43,13 +42,10 @@ header .brand {
 
 header h1 {
   margin: 14px 0 8px;
-  font-size: clamp(27px, 5vw, 42px);
+  font-size: clamp(27px,5vw,42px);
 }
 
-header p {
-  color: #dce4f0;
-  margin: 0;
-}
+header p { color: #dce4f0; margin: 0; }
 
 main {
   max-width: 1200px;
@@ -57,13 +53,91 @@ main {
   padding: 28px 18px 60px;
 }
 
-.section-title {
-  margin: 34px 0 18px;
+.instructions {
+  background: white;
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 5px 18px #17243b0b;
 }
 
-.section-title h2 {
-  margin-bottom: 6px;
+.instructions h2 {
+  margin-top: 0;
+  color: var(--navy);
 }
+
+.instructions ol {
+  padding-left: 22px;
+  line-height: 1.8;
+}
+
+.instructions li { margin-bottom: 8px; }
+
+.instructions strong { color: var(--blue); }
+
+.deadline {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 22px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.deadline-label {
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  background: #ffffff16;
+  border: 1px solid #ffffff35;
+  border-radius: 9px;
+  padding: 12px 17px;
+  min-width: 75px;
+}
+
+.time-box strong {
+  display: block;
+  font-size: 27px;
+  color: var(--gold);
+}
+
+.time-box span {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #dce4f0;
+}
+
+#deadlineMessage {
+  font-size: 13px;
+  color: #dce4f0;
+  margin-bottom: 0;
+}
+
+.closed-message {
+  background: #fff0f0;
+  border: 1px solid #e3a5a5;
+  color: var(--red) !important;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.section-title { margin: 34px 0 18px; }
+
+.section-title h2 { margin-bottom: 6px; }
 
 .section-title p {
   color: var(--muted);
@@ -72,12 +146,12 @@ main {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 14px;
 }
 
 .stat {
-  background: #fff;
+  background: white;
   padding: 20px;
   border-radius: 12px;
   text-align: center;
@@ -85,7 +159,7 @@ main {
 }
 
 .stat strong {
-  display: block;
+  display:block;
   font-size: 30px;
   color: var(--blue);
 }
@@ -98,30 +172,21 @@ main {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
   gap: 20px;
 }
 
 .design {
-  background: #fff;
+  background: white;
   border-radius: 15px;
   overflow: hidden;
   border: 1px solid #e3e5e9;
   box-shadow: 0 5px 18px #17243b0b;
 }
 
-.design.selected {
-  outline: 3px solid var(--gold);
-}
+.design.selected { outline: 3px solid var(--gold); }
 
-.design.already-voted {
-  opacity: .78;
-}
-
-.design h3 {
-  margin: 0;
-  padding: 17px 17px 4px;
-}
+.design h3 { margin: 0; padding: 17px 17px 4px; }
 
 .design .tag {
   padding: 0 17px 12px;
@@ -143,27 +208,25 @@ main {
 }
 
 .photo img {
-  width: 100%;
+  width:100%;
   height: 260px;
   object-fit: contain;
-  display: block;
+  display:block;
 }
 
 .photo small {
-  display: block;
-  text-align: center;
-  padding: 7px;
-  color: var(--muted);
+  display:block;
+  text-align:center;
+  padding:7px;
+  color:var(--muted);
 }
 
-.vote-area {
-  padding: 14px;
-}
+.vote-area { padding: 14px; }
 
 .vote-count {
-  color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 10px;
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:10px;
 }
 
 button {
@@ -175,31 +238,29 @@ button {
 }
 
 .vote-btn {
-  width: 100%;
-  background: var(--navy);
-  color: #fff;
+  width:100%;
+  background:var(--navy);
+  color:white;
 }
 
-.vote-btn:hover {
-  background: var(--blue);
-}
+.vote-btn:hover { background:var(--blue); }
 
 .vote-btn.is-selected {
-  background: var(--gold);
-  color: var(--navy);
+  background:var(--gold);
+  color:var(--navy);
 }
 
 .vote-btn:disabled {
-  opacity: .55;
-  cursor: not-allowed;
+  opacity:.45;
+  cursor:not-allowed;
 }
 
 .vote-submit {
-  background: #fff;
+  background: white;
   border: 2px solid var(--gold);
   border-radius: 12px;
-  padding: 18px;
-  margin: 22px 0;
+  padding: 20px;
+  margin: 25px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -208,13 +269,13 @@ button {
 }
 
 .vote-submit p {
-  margin: 5px 0;
   color: var(--muted);
+  margin: 6px 0;
 }
 
 .vote-submit button {
   background: var(--navy);
-  color: #fff;
+  color: white;
 }
 
 .vote-submit button:disabled {
@@ -223,85 +284,72 @@ button {
 }
 
 .results {
-  background: #fff;
-  border-radius: 14px;
-  padding: 22px;
-  border: 1px solid #e3e5e9;
+  background:white;
+  border-radius:14px;
+  padding:22px;
+  border:1px solid #e3e5e9;
 }
 
-.result-row {
-  margin: 18px 0;
-}
+.result-row { margin:18px 0; }
 
 .result-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 14px;
-  margin-bottom: 7px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:14px;
+  margin-bottom:7px;
 }
 
 .track {
-  height: 13px;
-  background: #e9edf3;
-  border-radius: 20px;
-  overflow: hidden;
+  height:13px;
+  background:#e9edf3;
+  border-radius:20px;
+  overflow:hidden;
 }
 
 .bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--blue), var(--gold));
-  border-radius: 20px;
-  transition: width .4s;
+  height:100%;
+  background:linear-gradient(90deg,var(--blue),var(--gold));
+  border-radius:20px;
+  transition:width .4s;
 }
 
 .rank {
-  font-weight: 800;
-  color: var(--gold);
-  margin-right: 8px;
+  font-weight:800;
+  color:var(--gold);
+  margin-right:8px;
 }
 
 .status {
-  color: var(--muted);
-  font-size: 13px;
-  margin-top: 12px;
+  color:var(--muted);
+  font-size:13px;
+  margin-top:12px;
 }
 
 .notice {
-  padding: 14px;
-  background: #fff8e7;
-  border: 1px solid #ead9ad;
-  border-radius: 9px;
-  color: #654d1d;
-  font-size: 13px;
-  line-height: 1.5;
+  padding:14px;
+  background:#fff8e7;
+  border:1px solid #ead9ad;
+  border-radius:9px;
+  color:#654d1d;
+  font-size:13px;
+  line-height:1.5;
 }
 
 footer {
-  background: var(--navy);
-  color: #dce4f0;
-  text-align: center;
-  padding: 25px;
-  font-size: 13px;
+  background:var(--navy);
+  color:#dce4f0;
+  text-align:center;
+  padding:25px;
+  font-size:13px;
 }
 
-@media(max-width: 560px) {
-  .stats {
-    grid-template-columns: 1fr;
-  }
-
-  .photo img {
-    height: 200px;
-  }
-
-  main {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .result-head {
-    font-size: 12px;
-  }
+@media(max-width:560px) {
+  .stats { grid-template-columns:1fr; }
+  .photo img { height:200px; }
+  main { padding-left:12px; padding-right:12px; }
+  .time-box { min-width:65px; padding:10px; }
+  .time-box strong { font-size:23px; }
 }
 </style>
 </head>
@@ -316,7 +364,77 @@ footer {
 
 <main>
 
+  <!-- VOTING INSTRUCTIONS -->
+  <section class="instructions">
+
+    <h2>BEFORE YOU VOTE, PLEASE READ</h2>
+
+    <ol>
+      <li>
+        <strong>ONE-TIME VOTING ONLY</strong> –
+        Make your best choices before submitting.
+      </li>
+
+      <li>
+        <strong>YOU HAVE 5 CHOICES</strong> –
+        Select up to five jersey designs.
+      </li>
+
+      <li>
+        <strong>FINAL SUBMISSION</strong> –
+        Once submitted, your votes are FINAL.
+        No changes, removals, or resubmissions.
+        One time only!
+      </li>
+
+      <li>
+        <strong>POLL DEADLINE</strong> –
+        Voting closes on November 25, 2026,
+        at 3:00 PM Philippine Time (PHT).
+      </li>
+    </ol>
+
+    <div class="deadline">
+
+      <div class="deadline-label">
+        TIME LEFT TO VOTE
+      </div>
+
+      <div class="countdown">
+
+        <div class="time-box">
+          <strong id="days">00</strong>
+          <span>DAYS</span>
+        </div>
+
+        <div class="time-box">
+          <strong id="hours">00</strong>
+          <span>HOURS</span>
+        </div>
+
+        <div class="time-box">
+          <strong id="minutes">00</strong>
+          <span>MINUTES</span>
+        </div>
+
+        <div class="time-box">
+          <strong id="seconds">00</strong>
+          <span>SECONDS</span>
+        </div>
+
+      </div>
+
+      <p id="deadlineMessage">
+        Poll closes November 25, 2026 at 3:00 PM PHT.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- STATISTICS -->
   <section class="stats">
+
     <div class="stat">
       <strong id="totalVotes">0</strong>
       <span>Total Votes</span>
@@ -331,8 +449,10 @@ footer {
       <strong id="leader">—</strong>
       <span>Current Leader</span>
     </div>
+
   </section>
 
+  <!-- JERSEY GALLERY -->
   <section class="section-title">
     <h2>Choose Your Jerseys</h2>
     <p>Select up to five different designs, then submit all your choices together.</p>
@@ -342,13 +462,17 @@ footer {
     Loading jersey designs...
   </div>
 
-  <section class="vote-submit" aria-live="polite">
+  <!-- SUBMISSION -->
+  <section class="vote-submit">
+
     <div>
       <strong>
         <span id="selectedCount">0</span> / 5 DESIGNS SELECTED
       </strong>
 
-      <p id="remainingCount">You can select up to 5 designs.</p>
+      <p id="remainingCount">
+        You can select up to 5 designs.
+      </p>
 
       <small id="voterStatus">
         Your selections have not been submitted.
@@ -361,13 +485,15 @@ footer {
       disabled>
       SUBMIT MY VOTES
     </button>
+
   </section>
 
   <p id="galleryStatus" class="status"></p>
 
+  <!-- LEADERBOARD -->
   <section class="section-title">
     <h2>Voting Leaderboard</h2>
-    <p>Rankings are based on the number of votes received by each design.</p>
+    <p>Live ranking based on submitted votes.</p>
   </section>
 
   <section class="results">
@@ -377,17 +503,6 @@ footer {
 
     <p id="resultStatus" class="status"></p>
   </section>
-
-  <section class="section-title">
-    <h2>Voting Information</h2>
-  </section>
-
-  <div class="notice">
-    Each voter identity can submit up to five different jersey choices.
-    The voting service checks previous submissions and prevents the same
-    identity from voting for the same design twice. Browser-based identity
-    is not the same as verified individual identity.
-  </div>
 
 </main>
 
@@ -400,9 +515,14 @@ footer {
 const OWNER = "Pro-Pulot-Co";
 const REPO = "pro-pulot-jersey-poll";
 const FOLDER = "Designs";
+
 const MAX_VOTES = 5;
 
-const SHEETS_URL = "https://script.google.com/macros/s/AKfycbz3HlgrJknE-mEvFDcYy7Z98dC5vs4YKfEXJtWu16C5FWr51aiqF6ZHwH-WN3anela2CQ/exec";
+const SHEETS_URL =
+"https://script.google.com/macros/s/AKfycbz3HlgrJknE-mEvFDcYy7Z98dC5vs4YKfEXJtWu16C5FWr51aiqF6ZHwH-WN3anela2CQ/exec";
+
+// November 25, 2026, 3:00 PM Philippine Time
+const DEADLINE = new Date("2026-11-25T15:00:00+08:00");
 
 const gallery = document.getElementById("gallery");
 const galleryStatus = document.getElementById("galleryStatus");
@@ -414,16 +534,64 @@ let designs = [];
 let votes = {};
 let selectedDesigns = new Set();
 let alreadyVoted = new Set();
+let pollClosed = false;
+
+
+// COUNTDOWN
+function updateCountdown() {
+
+  const now = Date.now();
+  const remaining = DEADLINE.getTime() - now;
+
+  if (remaining <= 0) {
+
+    pollClosed = true;
+
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+
+    document.getElementById("deadlineMessage").textContent =
+      "VOTING IS NOW CLOSED. Thank you for participating!";
+
+    document.getElementById("deadlineMessage").classList.add("closed-message");
+
+    selectedDesigns.clear();
+    submitButton.disabled = true;
+
+    renderGallery();
+    updateSelectionUI();
+
+    return;
+  }
+
+  const days = Math.floor(remaining / 86400000);
+  const hours = Math.floor((remaining % 86400000) / 3600000);
+  const minutes = Math.floor((remaining % 3600000) / 60000);
+  const seconds = Math.floor((remaining % 60000) / 1000);
+
+  document.getElementById("days").textContent = String(days).padStart(2, "0");
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 
 function voterToken() {
+
   let token = localStorage.getItem("proPulotVoter");
 
   if (!token) {
-    token = (crypto.randomUUID ? crypto.randomUUID() :
-      "voter-" + Date.now() + "-" + Math.random().toString(36).slice(2));
+
+    token = crypto.randomUUID();
 
     localStorage.setItem("proPulotVoter", token);
+
   }
 
   return token;
@@ -431,6 +599,7 @@ function voterToken() {
 
 
 function escapeHTML(value) {
+
   return String(value).replace(/[&<>"']/g, c => ({
     "&": "&amp;",
     "<": "&lt;",
@@ -438,17 +607,21 @@ function escapeHTML(value) {
     '"': "&quot;",
     "'": "&#39;"
   })[c]);
+
 }
 
 
 function escapeJS(value) {
+
   return String(value)
     .replace(/\\/g, "\\\\")
     .replace(/'/g, "\\'");
+
 }
 
 
 function jsonp(params) {
+
   return new Promise((resolve, reject) => {
 
     const callback = "poll_" + Date.now() + "_" +
@@ -485,20 +658,24 @@ function jsonp(params) {
     script.src = `${SHEETS_URL}?${query}`;
 
     document.body.appendChild(script);
+
   });
+
 }
 
 
+// LOAD DESIGNS
 async function loadDesigns() {
 
   try {
 
-    const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FOLDER}`;
+    const url =
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FOLDER}`;
 
     const response = await fetch(url);
 
     if (!response.ok) {
-      throw new Error("Could not read the Designs folder.");
+      throw new Error("Could not read Designs folder.");
     }
 
     const files = await response.json();
@@ -535,13 +712,8 @@ async function loadDesigns() {
 
     renderGallery();
 
-    if (!designs.length) {
-      galleryStatus.textContent =
-        "No complete front/back image pairs found. Check the filenames in Designs.";
-    } else {
-      galleryStatus.textContent =
-        `${designs.length} complete jersey designs loaded.`;
-    }
+    galleryStatus.textContent =
+      `${designs.length} complete jersey designs loaded.`;
 
     await loadVoterStatus();
     await loadResults();
@@ -551,22 +723,25 @@ async function loadDesigns() {
     gallery.textContent = "Unable to load designs: " + error.message;
 
     galleryStatus.textContent =
-      "Check that the repository is public and the images are committed inside Designs.";
+      "Check that the repository is public and images are committed inside Designs.";
 
   }
+
 }
 
 
+// RENDER GALLERY
 function renderGallery() {
 
   gallery.innerHTML = designs.map((d, i) => {
 
     const isSelected = selectedDesigns.has(d.name);
     const hasVoted = alreadyVoted.has(d.name);
+
     const count = Number(votes[d.name] || 0);
 
     return `
-      <article class="design ${isSelected ? "selected" : ""} ${hasVoted ? "already-voted" : ""}">
+      <article class="design ${isSelected ? "selected" : ""}">
 
         <h3>${escapeHTML(d.name)}</h3>
 
@@ -577,16 +752,14 @@ function renderGallery() {
         <div class="photos">
 
           <div class="photo">
-            <img
-              src="${d.F}"
+            <img src="${d.F}"
               alt="${escapeHTML(d.name)} front"
               loading="lazy">
             <small>FRONT</small>
           </div>
 
           <div class="photo">
-            <img
-              src="${d.B}"
+            <img src="${d.B}"
               alt="${escapeHTML(d.name)} back"
               loading="lazy">
             <small>BACK</small>
@@ -603,13 +776,15 @@ function renderGallery() {
           <button
             class="vote-btn ${isSelected ? "is-selected" : ""}"
             onclick="toggleSelection('${escapeJS(d.name)}')"
-            ${hasVoted ? "disabled" : ""}>
+            ${pollClosed || hasVoted ? "disabled" : ""}>
 
-            ${hasVoted
-              ? "ALREADY VOTED"
-              : isSelected
-                ? "✓ SELECTED — TAP TO REMOVE"
-                : "SELECT THIS DESIGN"}
+            ${pollClosed
+              ? "POLL CLOSED"
+              : hasVoted
+                ? "ALREADY VOTED"
+                : isSelected
+                  ? "✓ SELECTED — TAP TO REMOVE"
+                  : "SELECT THIS DESIGN"}
 
           </button>
 
@@ -621,12 +796,14 @@ function renderGallery() {
   }).join("");
 
   updateSelectionUI();
+
 }
 
 
+// SELECT OR DESELECT
 function toggleSelection(name) {
 
-  if (alreadyVoted.has(name)) return;
+  if (pollClosed || alreadyVoted.has(name)) return;
 
   if (selectedDesigns.has(name)) {
 
@@ -644,9 +821,11 @@ function toggleSelection(name) {
   }
 
   renderGallery();
+
 }
 
 
+// UPDATE COUNTER
 function updateSelectionUI() {
 
   const count = selectedDesigns.size;
@@ -659,20 +838,30 @@ function updateSelectionUI() {
   document.getElementById("selectedCount").textContent = count;
 
   document.getElementById("remainingCount").textContent =
-    alreadyVoted.size
-      ? `${alreadyVoted.size} already submitted. ${remaining} selections remaining.`
-      : `${remaining} ${remaining === 1 ? "selection" : "selections"} remaining.`;
+    `${remaining} selections remaining.`;
 
   document.getElementById("voterStatus").textContent =
     alreadyVoted.size
       ? `${alreadyVoted.size} of your 5 allowed choices already submitted.`
-      : "You have not submitted any choices yet.";
+      : "Your selections have not been submitted.";
 
-  submitButton.disabled = count === 0;
+  submitButton.disabled =
+    count === 0 || pollClosed;
+
+  if (pollClosed) {
+    submitButton.textContent = "POLL CLOSED";
+  }
+
 }
 
 
+// SUBMIT VOTES
 async function submitVotes() {
+
+  if (pollClosed || Date.now() >= DEADLINE.getTime()) {
+    alert("Voting is now closed.");
+    return;
+  }
 
   const choices = [...selectedDesigns];
 
@@ -682,7 +871,7 @@ async function submitVotes() {
   }
 
   if (alreadyVoted.size + choices.length > MAX_VOTES) {
-    alert("You can submit no more than five designs in total.");
+    alert("You can submit no more than five designs.");
     return;
   }
 
@@ -707,11 +896,7 @@ async function submitVotes() {
 
     selectedDesigns.clear();
 
-    alert(
-      `Your ${choices.length} ${
-        choices.length === 1 ? "vote has" : "votes have"
-      } been recorded. Thank you!`
-    );
+    alert("Your votes have been recorded. No further changes can be made.");
 
     await loadResults();
 
@@ -723,14 +908,18 @@ async function submitVotes() {
 
   } finally {
 
-    submitButton.textContent = "SUBMIT MY VOTES";
+    submitButton.textContent = pollClosed
+      ? "POLL CLOSED"
+      : "SUBMIT MY VOTES";
 
     updateSelectionUI();
 
   }
+
 }
 
 
+// CHECK PREVIOUS VOTES
 async function loadVoterStatus() {
 
   const result = await jsonp({
@@ -739,17 +928,17 @@ async function loadVoterStatus() {
   });
 
   if (!result.success) {
-    throw new Error(
-      result.message || "Could not check your previous votes."
-    );
+    throw new Error(result.message || "Could not check previous votes.");
   }
 
   alreadyVoted = new Set(result.votedDesigns || []);
 
   renderGallery();
+
 }
 
 
+// LOAD RESULTS
 async function loadResults() {
 
   try {
@@ -776,9 +965,11 @@ async function loadResults() {
     resultStatus.textContent = error.message;
 
   }
+
 }
 
 
+// LEADERBOARD
 function renderResults(data) {
 
   const sorted = designs.map(d => ({
@@ -816,17 +1007,13 @@ function renderResults(data) {
               </span>
 
               <strong>
-                ${d.count} ${d.count === 1 ? "vote" : "votes"}
-                · ${percentage.toFixed(1)}%
+                ${d.count} votes · ${percentage.toFixed(1)}%
               </strong>
 
             </div>
 
             <div class="track">
-              <div
-                class="bar"
-                style="width:${percentage}%">
-              </div>
+              <div class="bar" style="width:${percentage}%"></div>
             </div>
 
           </div>
