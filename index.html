@@ -410,3 +410,31 @@ loadDesigns();
 </script>
 </body>
 </html>
+
+.vote-btn.is-selected {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+.vote-submit {
+    background: white;
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.vote-submit button {
+    background: var(--navy);
+    color: white;
+}
+
+.vote-submit button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
