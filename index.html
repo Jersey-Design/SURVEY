@@ -140,6 +140,22 @@ footer { background:var(--navy); color:#dce4f0; text-align:center; padding:25px;
   </section>
 
   <div id="gallery" class="gallery">Loading jersey designs...</div>
+  <div class="vote-submit">
+    <div>
+        <strong>
+            <span id="selectedCount">0</span> SELECTED
+        </strong>
+        <p>Choose up to 5 jersey designs.</p>
+        <small id="remainingCount">5 votes remaining</small>
+    </div>
+
+    <button
+        id="submitVotesBtn"
+        onclick="submitVotes()"
+        disabled>
+        SUBMIT MY VOTES
+    </button>
+</div>
   <p id="galleryStatus" class="status"></p>
 
   <section class="section-title">
